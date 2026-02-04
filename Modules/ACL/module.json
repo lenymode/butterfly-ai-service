@@ -1,0 +1,9 @@
+{
+    "name": "ACL",
+    "alias": "acl",
+    "description": "Access Control List module for authentication and authorization",
+    "keywords": ["acl", "roles", "permissions", "auth"],
+    "priority": 0,
+    "providers": [],
+    "files": []
+}

@@ -1,0 +1,35 @@
+services:
+  fleetx-php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fleetx-php
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    networks:
+      - nex-academy_nex-network   # attach to existing network
+    environment:
+      - DB_HOST=nex-mysql
+      - DB_PORT=3306
+      - DB_DATABASE=fleetX
+      - DB_USERNAME=root
+      - DB_PASSWORD=
+
+  fleetx-nginx:
+    image: nginx:alpine
+    container_name: fleetx-nginx
+    ports:
+      - "8025:80"
+    volumes:
+      - .:/var/www/html
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - nex-academy_nex-network   # attach to existing network
+    depends_on:
+      - fleetx-php
+
+networks:
+  nex-academy_nex-network:
+    external: true   # tell compose to use the already existing network

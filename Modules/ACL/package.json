@@ -1,0 +1,5 @@
+{
+    "name": "laravel-module/acl",
+    "version": "1.0.0",
+    "description": "Access Control List Module for Laravel"
+}
