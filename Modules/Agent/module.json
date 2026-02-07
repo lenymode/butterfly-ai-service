@@ -1,0 +1,9 @@
+{
+    "name": "Agent",
+    "alias": "agent",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [],
+    "files": []
+}
